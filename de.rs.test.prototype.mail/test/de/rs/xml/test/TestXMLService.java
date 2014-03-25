@@ -5,11 +5,19 @@ import java.io.IOException;
 import java.util.Calendar;
 
 import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
+import com.lowagie.text.DocumentException;
+
+import de.rs.firdaous.xml.service.IDocumentService;
 import de.rs.firdaous.xml.service.IXMLService;
 import de.rs.firdaous.xml.service.ProjectList;
+import de.rs.firdaous.xml.service.ServiceForDocument;
 import de.rs.firdaous.xml.service.XMLService;
 import de.rs.prototype.firdaous.model.Address;
 import de.rs.prototype.firdaous.model.Clinic;
@@ -26,12 +34,72 @@ public class TestXMLService {
 	private IXMLService xmlService = XMLService.getxmlService();
 	static WorkOrder workOrder;
 	
-	static {
+	@Before
+	public void setUp(){
+		
 		createTestData();
+		
+		
+	}
+	
+	@Ignore
+	@Test
+	public void encryptPDF(){
+		IDocumentService instance = ServiceForDocument.getInstance();
+		try {
+			instance.encryptPdf(null, null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	@Ignore
+	@Test
+	public void copyPDF(){
+		IDocumentService instance = ServiceForDocument.getInstance();
+		try {
+			instance.copyPDF(null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
+	
+	@Test
+	public void setField_ShowFieldValue(){
+		IDocumentService instance = ServiceForDocument.getInstance();
+		try {
+			instance.setFieldToPDF(workOrder, null);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParserConfigurationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SAXException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (DocumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 	
-	
+	@Ignore
 	@Test
 	public void testSaveProjectList() throws IOException{	
 		xmlService.saveProjects(workOrder);
@@ -40,6 +108,7 @@ public class TestXMLService {
 		xmlService.saveProjects(workOrder);
 	}
 	
+	@Ignore
 	@Test
 	public void setLoadProjectList() throws IOException {
 		try {
