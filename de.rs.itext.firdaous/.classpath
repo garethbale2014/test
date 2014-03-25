@@ -2,6 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-	<classpathentry exported="true" kind="lib" path=""/>
+	<classpathentry exported="true" kind="lib" path="" sourcepath="C:/Users/r.sahili/BackupW192a07/Users/RSahili.GOC/Downloads/itext-5.4.5/itextpdf-5.4.5-sources"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
